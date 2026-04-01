@@ -1,4 +1,4 @@
-## BomScroller
+## BOM Scroller
 
 A time-based BOM navigator built for live ERP data.
 
