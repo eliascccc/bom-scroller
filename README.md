@@ -7,7 +7,7 @@ A time-based BOM navigator built for live ERP data.
 
 ## Overview
 
-BomScroller is a local web tool for exploring how a Bill of Materials (BOM) evolves over time.
+BOM Scroller is a local web tool for exploring how a Bill of Materials (BOM) evolves over time.
 
 It does **not** compare static version snapshots.  
 Instead, it reconstructs BOMs from a **date-driven row model** and compares them visually.
@@ -22,20 +22,6 @@ The goal is simple:
 
 ---
 
-## How a BOM is presented
-
-For each version:
-
-1. Take its `from_date`
-2. Get all active rows at that date
-3. Group by base article (e.g. `550412`)
-4. Keep only the latest revision (`-03` over `-02`)
-5. Sort by `item_nr`
-
-**Result:** one clean BOM per version
-
----
-
 
 ## Coloring logic
 
@@ -43,6 +29,8 @@ For each version:
 |--------------------------|--------|
 | Change Left vs Center    | Blue   |
 | Change Center vs Right   | Purple |
+
+Changes include different quantity and/or part number
 
 ---
 
@@ -85,7 +73,7 @@ http://127.0.0.1:5000
 
 #### ERP / PLM tools
 
-OpenBOM, NetSuite tools, ERPNext BOM compare
+eg. OpenBOM, NetSuite tools, ERPNext BOM compare
 
 These allow comparing BOM revisions inside a system, typically:
 
@@ -95,9 +83,9 @@ These allow comparing BOM revisions inside a system, typically:
 
 ---
 
-#### BomScroller (this project)
+#### BOM Scroller (this project)
 
-BomScroller takes a different approach:
+BOM Scroller takes a different approach:
 
 - No file upload  
 - No “compare A vs B”  
