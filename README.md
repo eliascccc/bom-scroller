@@ -30,7 +30,10 @@ The goal is simple:
 | Change Left vs Center    | Blue   |
 | Change Center vs Right   | Purple |
 
-Changes include different quantity and/or part number
+Changes include:
+- different quantity
+- different part number
+- add new or remove part
 
 ---
 
