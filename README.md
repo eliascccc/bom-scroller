@@ -1,4 +1,4 @@
-## BOM Scroller
+## BOMscroller
 
 A time-based BOM navigator built for live ERP data.
 
@@ -7,7 +7,7 @@ A time-based BOM navigator built for live ERP data.
 
 ## Overview
 
-BOM Scroller is a local web tool for exploring how a Bill of Materials (BOM) evolves over time.
+BOMscroller is a local web tool for exploring how a Bill of Materials (BOM) evolves over time.
 
 It does **not** compare static version snapshots.  
 Instead, it reconstructs BOMs from a **date-driven row model** and compares them visually.
@@ -18,7 +18,7 @@ The goal is simple:
 
 ---
 ## Example
-<img width="1810" height="809" alt="image" src="https://github.com/user-attachments/assets/646dccd5-8bb9-4215-99a6-efa599fd9ab5" />
+<img width="1810" height="809" alt="image" src="https://github.com/user-attachments/assets/be8a89c7-7a19-49aa-9d0a-5b260b941566" />
 
 ---
 
@@ -34,6 +34,8 @@ Changes include:
 - different quantity
 - different part number
 - add new or remove part
+
+Green is the current version
 
 ---
 
@@ -86,9 +88,9 @@ These allow comparing BOM revisions inside a system, typically:
 
 ---
 
-#### BOM Scroller (this project)
+#### BOMscroller (this project)
 
-BOM Scroller takes a different approach:
+BOMscroller takes a different approach:
 
 - No file upload  
 - No “compare A vs B”  
@@ -99,6 +101,19 @@ Instead:
 → Scroll through BOM versions over time, directly from ERP data
 
 ---
+
+## Data model note
+
+`item_grp` is used both for sorting and matching rows across versions
+
+In real ERP systems, these concerns are typically separated:
+- one field for visual ordering
+- one field for functional identity / matching
+
+The dataset here is intentionally simplified to make the behavior easier to understand.
+
+---
+
 ## Project status
 
 This is a concept prototype.
