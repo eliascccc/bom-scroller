@@ -9,9 +9,7 @@ A time-based BOM navigator built for ERP data.
 
 BOM scroller is a local web tool for exploring how a Bill of Materials (BOM) evolves over time. It does **not** compare static version snapshots. Instead, it reconstructs BOMs from a **data source** and compares them visually.
 
-The goal is:
-
-Understand *what changed, where,* and *when* — in a way that matches how BOMs actually behave in real systems.
+The goal is to understand *what changed, where,* and *when* — in a way that matches how BOMs actually behave in real systems.
 
 ---
 ## Example
@@ -22,12 +20,11 @@ Understand *what changed, where,* and *when* — in a way that matches how BOMs 
 
 ## Coloring logic
 
-| Relation                  | Color   |
-|--------------------------|--------|
-| Diff: Left → Center      | Blue   |
-| Diff: Center → Right     | Purple |
+Any changes from left to center are marked in: Blue
 
-Change highlight for parts that are: added / removed / replaced / qty changed
+Any changes from Center to right are marked in: Purple
+
+Change is defined by parts that are: added / removed / replaced / qty changed
 
 Green indicates the current version
 
@@ -44,28 +41,7 @@ Built for:
 - date-effective ERP data  
 - human understanding, not raw diff output  
 
----
-
-## How it works
-
-Under the hood, BOMs are reconstructed from a row-based ERP model where each row is defined by:
-
-- SKU  
-- item group (structural position in the BOM)  
-- part number  
-- quantity  
-- validity period (from_date / to_date)  
-
-Rows are aligned using a structural key (`item_grp`), not by part identity.
-
-This means:
-- comparisons follow the structure of the BOM, not the part numbers  
-- part replacements appear as in-place changes at the same position  
-- new parts appear as local insertions into the existing structure  
-
-The BOM can be rebuilt at any point in time directly from the data model, without relying on stored snapshots.
-
-This approach assumes that BOM structure is stable over time and evolves incrementally. For a detailed explanation of the underlying design and assumptions, see [BOM assumptions](bom-assumptions.md)
+For a detailed explanation of the underlying design and assumptions, see [BOM assumptions](bom-assumptions.md)
 
 ---
 
@@ -84,7 +60,7 @@ http://127.0.0.1:5000
 ```
 
 ---
-## How it compares
+## How this compares to other projects
 
 #### File-based BOM diff tools
 
@@ -127,12 +103,4 @@ Instead:
 
 ## Project status
 
-This is a concept prototype.
-
-The focus is on:
-
-- data model correctness  
-- visual clarity  
-- realistic BOM behavior  
-
-Not production readiness.
+This is a concept prototype with focus on visual clarity and realistic BOM behavior. Not production ready.
